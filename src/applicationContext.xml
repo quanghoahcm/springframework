@@ -4,7 +4,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="myCard" 
+	<bean id="creditCard" 
 		  class ="com.ps.springmvc.model.ATMCard">
 	</bean>			
 	<!-- <bean	id="myAccount"
@@ -12,7 +12,10 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 			<constructor-arg ref="myCard" />
 	</bean> 		 -->
 <bean	id="myAccount"
-			class="com.ps.springmvc.model.CurrentAccount">		
-			<property name="creditCard" ref="myCard" />
+			class="com.ps.springmvc.model.CurrentAccount" 
+			autowire="byType"
+			scope="singleton"
+			>		
+		<!-- 	<property name="creditCard" ref="myCard" /> -->
 	</bean> 	
 </beans>
