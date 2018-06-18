@@ -15,7 +15,7 @@ create table T_USER (
    UNIQUE (USERNAME)
 );
    
-/* La table T_ROLE contient tous les rôles possibles */ 
+/* La table T_ROLE contient tous les rÃ´les possibles */ 
 create table T_ROLE (
    id   Integer      NOT NULL AUTO_INCREMENT,
    TYPE VARCHAR(30) NOT NULL,
@@ -42,17 +42,19 @@ VALUES ('DBA');
 INSERT INTO T_ROLE(type)
 VALUES ('USER');
   
-/* Insértion d'un utilisateur dont le rôle est administrateur qui va créer et modifier le rôle d'autres utilisateurs de l'application à l'aide de l'interface graphique */
-/* Pour générer la version crypté du mot de passe: abc1 , il faut exécuté la méthode main dans la classe PasswordEncoding */
+/* InsÃ©rtion d'un utilisateur dont le rÃ´le est administrateur qui va crÃ©er et modifier le rÃ´le d'autres utilisateurs de l'application Ã  l'aide de l'interface graphique */
+/* Pour gÃ©nÃ©rer la version cryptÃ© du mot de passe: abc1 , il faut exÃ©cutÃ© la mÃ©thode main dans la classe PasswordEncoding */
+/* Username: hoa-87 , password: Hoa87$ */
 INSERT INTO T_USER(USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL)
-VALUES ('taoufi','$2a$10$8un3L3OtmXWASm26VIGWJekKUqrrWgnAs2x9UPTXqb8UVG.hG9yH', 'Tarik','Aoufi','taoufi@xyz.com');
- 
+VALUES ('hoa-87','$2a$10$BW9G2t/s0xV2AloETPt37e0y7EbZsWNtBf2BbosfmN95dWKp4MhW6', 'Tarik','Aoufi','taoufi@xyz.com');
+ INSERT INTO T_USER(USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL)
+VALUES ('hoa-87','$2a$10$BW9G2t/s0xV2AloETPt37e0y7EbZsWNtBf2BbosfmN95dWKp4MhW6', 'Hoa','Quang','quanghoahcm@gmail.com');
   
 /* Remplir la table de jointure */
 INSERT INTO T_USER_ROLE(USER_ID, ROLE_ID)   SELECT user.id, role.id FROM T_USER user, T_ROLE role where user.USERNAME='tarik' and role.TYPE='ADMIN';
 
  
-/* La table T_PERSISTENT_LOGIN est utilisée pour stocker les éléments liés au service souviens-moi */
+/* La table T_PERSISTENT_LOGIN est utilisÃ©e pour stocker les Ã©lÃ©ments liÃ©s au service souviens-moi */
 CREATE TABLE T_PERSISTENT_LOGIN (
     USER_NAME VARCHAR(64) NOT NULL,
     SERIES    VARCHAR(64) NOT NULL,
